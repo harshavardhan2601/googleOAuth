@@ -1,4 +1,4 @@
 # googleOAuth
-# With pug template
-# With NodeJS
-# With MongoDB
+ With pug template
+ With NodeJS
+ With MongoDB
