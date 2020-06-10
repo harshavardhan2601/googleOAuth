@@ -35,7 +35,7 @@ passport.use(
         var newUser ={
           google:profile.id,
           name:profile.displayName,
-          // file_attach1:profile.photos[0].value,
+          file_attach1:profile.photos[0].value,
           email:profile.emails[0].value
         }
         mongoose.model('User').create(newUser,function (err,userobj) {
