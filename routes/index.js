@@ -97,6 +97,30 @@ router.get('/dashboard',function (req,res,next) {
   res.render('dashboard');
 });
 
+router.get('/Change',function (req,res,next) {
+  res.render('change');
+});
+
+router.post('/changepassword',function (req,res,next) {
+  var reqs = req.body;
+  console.log(reqs);
+  var s = req.session.user_id
+  console.log(s);
+  mongoose.model('User').findByIdAndUpdate({_id:s},{
+    $set:{
+      password: reqs.newpass
+    }
+  },function (err,pass) {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log(pass);
+      res.send({pass});
+    }
+  })
+});
+
+
 router.get('/profile', function (req, res, next) {
   var s = req.session.user_id
   console.log(s);
