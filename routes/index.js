@@ -74,7 +74,7 @@ router.post('/signup',function (req,res,next) {
   }
 });
 
-router.post('/dashboard',function (req,res,next) {
+router.get('/dashboard',function (req,res,next) {
   res.render('dashboard');
 });
 
