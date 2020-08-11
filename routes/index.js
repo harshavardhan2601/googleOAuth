@@ -44,6 +44,25 @@ router.post('/page', function (req, res, next) {
     })
 });
 
+router.get('/page_veriy_user', function (req, res, next) {
+  var u_id = req.session.user_id;
+  var email = req.session.email_id;
+  console.log(u_id)
+  if (u_id != '' && u_id != undefined) {
+    mongoose.model('User').findById({ _id : u_id,email:email }, function (err, data) {
+      if (err) { console.log(err) }
+      else {
+        console.log(data);
+        console.log("data")
+        res.json({ "data": data });
+      }
+
+    });
+  } else {
+    res.json({ "data": 'failure' })
+  }
+
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
